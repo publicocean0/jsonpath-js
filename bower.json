@@ -1,0 +1,17 @@
+{
+  "name": "jsonpath-js",
+  "version": "0.0.1",
+  "main": ["jsonpath.js"],
+  "ignore": [
+    ".bowerrc",
+    ".gitignore",
+    ".jshintignore",
+    ".jshintrc",
+    "bower.json",
+    "gruntfile.js",
+    "package.json",
+    "README.md"
+  ],
+  "private": false,
+
+}
