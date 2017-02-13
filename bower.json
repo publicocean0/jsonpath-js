@@ -12,6 +12,6 @@
     "package.json",
     "README.md"
   ],
-  "private": false,
+  "private": false
 
 }
