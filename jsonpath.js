@@ -1,6 +1,5 @@
-function jsonPath(obj, expr, arg) {
+function jsonPath(obj, expr) {
    var P = {
-      resultType: arg && arg.resultType || "VALUE",
       result: [],
       normalize: function(expr) {
          var subx = [];
@@ -17,7 +16,7 @@ function jsonPath(obj, expr, arg) {
          return p;
       },
       store: function(p, v) {
-         if (p) P.result[P.result.length] = P.resultType == "PATH" ? P.asPath(p) : v;
+         if (p) P.result[P.result.length] = {path:P.asPath(p),value:v,parent:null};
          return !!p;
       },
       trace: function(expr, val, path) {
@@ -75,7 +74,7 @@ function jsonPath(obj, expr, arg) {
    };
 
    var $ = obj;
-   if (expr && obj && (P.resultType == "VALUE" || P.resultType == "PATH")) {
+   if (expr && obj) {
       P.trace(P.normalize(expr).replace(/^\$;/,""), obj, "$");
       return P.result.length ? P.result : false;
    }
